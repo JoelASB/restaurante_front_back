@@ -11,4 +11,13 @@ Tickets necesita consultar los pedidos de una mesa para calcular el total. ¿La 
 
 **Joel:**  
 
-**Paolo:** 
+**Paolo:**
+
+
+## PREDICCIÓN 7
+La IA va a crear varias páginas y componentes. ¿Cuántos archivos creará? ¿Generará componentes reutilizables o repetirá código en cada página? ¿Manejará los errores de fetch o asumirá que el backend siempre responde?
+
+**Joel:**  
+
+**Paolo:**
+
