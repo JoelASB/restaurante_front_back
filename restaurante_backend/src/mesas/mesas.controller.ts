@@ -1,9 +1,11 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { MesasService } from './mesas.service';
+import { CambiarEstadoMesaDto } from './dto/cambiar-estado-mesa.dto';
 import { CreateMesaDto } from './dto/create-mesa.dto';
 import { UpdateMesaDto } from './dto/update-mesa.dto';
-import { EstadoMesa } from './enums/estado-mesa.enum';
 
+@ApiTags('mesas')
 @Controller('mesas')
 export class MesasController {
   constructor(private readonly mesasService: MesasService) {}
@@ -34,10 +36,11 @@ export class MesasController {
   }
 
   @Patch(':id/estado')
+  @ApiOperation({ summary: 'Cambiar el estado de una mesa' })
   cambiarEstado(
     @Param('id', ParseIntPipe) id: number,
-    @Body('estado') estado: EstadoMesa,
+    @Body() cambiarEstadoDto: CambiarEstadoMesaDto,
   ) {
-    return this.mesasService.cambiarEstado(id, estado);
+    return this.mesasService.cambiarEstado(id, cambiarEstadoDto.estado);
   }
 }

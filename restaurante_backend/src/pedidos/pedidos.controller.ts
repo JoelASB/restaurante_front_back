@@ -10,11 +10,13 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { CambiarEstadoPedidoDto } from './dto/cambiar-estado-pedido.dto';
 import { CreatePedidoDto } from './dto/create-pedido.dto';
 import { UpdatePedidoDto } from './dto/update-pedido.dto';
-import { EstadoPedido } from './enums/estado-pedido.enum';
 import { PedidosService } from './pedidos.service';
 
+@ApiTags('pedidos')
 @Controller('pedidos')
 export class PedidosController {
   constructor(private readonly pedidosService: PedidosService) {}
@@ -49,10 +51,11 @@ export class PedidosController {
   }
 
   @Patch(':id/estado')
+  @ApiOperation({ summary: 'Cambiar el estado de un pedido' })
   cambiarEstado(
     @Param('id', ParseIntPipe) id: number,
-    @Body('estado') estado: EstadoPedido,
+    @Body() cambiarEstadoDto: CambiarEstadoPedidoDto,
   ) {
-    return this.pedidosService.cambiarEstado(id, estado);
+    return this.pedidosService.cambiarEstado(id, cambiarEstadoDto.estado);
   }
 }
