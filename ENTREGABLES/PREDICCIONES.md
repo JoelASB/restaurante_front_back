@@ -11,7 +11,7 @@ Tickets necesita consultar los pedidos de una mesa para calcular el total. ¿La 
 
 **Joel:**  La IA usara query directa a la tabla pedidos, no usara el servicio de pedidos module. La mejor practica seria usar el servicio de pedidos module.
 
-**Paolo:**
+**Paolo:**La IA podría intentar importar el servicio de Pedidos pero fallar en la configuración de dependencias circulares, optando finalmente por la query directa para evitar complicaciones técnicas durante la generación del código
 
 
 ## PREDICCIÓN 7
@@ -19,5 +19,5 @@ La IA va a crear varias páginas y componentes. ¿Cuántos archivos creará? ¿G
 
 **Joel:**  Creara alrededor de 10 a 20 archivos. Generara componentes reutilizables y repetira codigo en cada pagina. Manejara los errores de fetch asumiendo que el backend siempre responde.
 
-**Paolo:**
+**Paolo:** La IA asumirá un caminosencillo donde el backend siempre responde correctamente. Es poco probable que implemente estados de error detallados o mensajes de usuario a menos que se lo exijamos explícitamente en el prompt, por lo que probablemente veamos pantallas blancas si el backend está caído.
 
